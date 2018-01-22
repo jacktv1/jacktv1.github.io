@@ -1,0 +1,23 @@
+@font-face{
+	font-family: BadheadTypeface;
+	src: url('../fonts/BadheadTypeface.ttf');
+}
+#header{
+	background: url('../images/header_bg2.jpg');
+	background-size: cover;
+	height: 300px;
+	width: 100%;
+}
+#page-title{
+	font-family: BadheadTypeface;
+	font-size: 150px;
+	text-align: center;
+	color: #fff;
+	margin-top:50px;
+}
+
+.list-project .item{
+	color:#ffffff;
+	background-color:#ffa63e;
+	padding: 15px;
+}
