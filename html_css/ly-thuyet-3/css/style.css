@@ -1,0 +1,111 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 11px;
+	max-width: 320px;
+	margin: auto;
+}
+.float-right{
+	float: right;
+}
+.text-dark{
+	color: #000 !important;
+}
+.link{
+	text-decoration: none;
+	color: #0a6395;
+	font-weight: bold;
+}
+.section-title{
+	font-size: 12px;
+	border-bottom: 2px solid #ffa500;
+	margin-top:0;
+}
+.mr-10{
+	margin-right:10px;
+}
+.border{
+	border: 1px solid #C7CACF;
+}
+.blogroll{
+	background-color: #e6f3fb;
+	padding: 5px 10px;
+}
+.first-blog{
+	background-color: #fff;
+	padding: 10px 10px;
+	height: 100px;
+}
+.thumbnail{
+	float: left;	
+}
+.list-blog{
+	list-style-type: none;
+	background-color: #FBF1C0;
+	padding:0;
+	margin-top: 0;
+}
+.list-blog li{
+	padding: 10px 10px;
+	border-bottom: 1px solid #fff;
+}
+.list-blog li a{
+	color: #0a6395;
+	text-decoration:none;
+}
+.horoscopes{
+	background-color: #e6f3fb;
+	padding: 10px 10px;
+}
+.horoscopes-content{
+	background-color: #fff;
+	padding: 10px 5px;
+
+
+}
+.horoscopes-content a{
+	text-decoration: none;
+
+}
+.date{
+	color: #808080;
+}
+.horo-powered{
+	background-color: #f4f4ec;
+	padding: 0;
+	height: 50px;
+}
+.author{
+
+	padding: 15px 10px;
+}
+.author p{
+	margin: 0;
+}
+
+.get-news-mobile{
+	background-color: #e6f3fb;
+	padding: 10px 10px;
+}
+.get-news-mobile-content{
+	padding: 0;
+	background-color: #fff;
+	height: 110px;
+}
+.get-news-mobile-content p, .get-news-mobile-content a {
+	padding: 15px 10px;
+}
+
+.competition-title{
+	font-size: 12px;
+	border-top: 1px solid #cccccc;
+	margin-top:0;
+	padding-top: 10px;
+	margin-bottom: 2px;
+}
+.competition-content{
+	background-color: #fff;
+	padding: 15px 15px;
+	border: 1px solid #dadada;
+}
