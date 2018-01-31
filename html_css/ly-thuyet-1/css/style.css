@@ -1,0 +1,77 @@
+body{
+	font-family: 'San-serif';
+}
+a{
+	text-decoration: none;
+}
+.container{
+	width: 500px;
+	border: 1px solid #0033FF;
+	padding-top: 5px;
+	margin:auto;
+}
+.title{
+	background: url('../images/title_background.gif');
+	height: 25px;
+}
+.info{
+	height: 100px;
+	display: flex;
+	
+}
+.left-info{
+	width: 25%;
+}
+.right-info{
+	width: 75%;
+	overflow: scroll;
+}
+.fact-list ul{
+	list-style-type: none;
+}
+.comment{
+	margin-top: 20px;
+
+}
+.comment-detail{
+	display: flex;
+	width: 100%;
+}
+.comment-item{
+	background: #ECECEC;
+	padding-left: 5px;
+
+}
+.img-comment{
+	margin-left: 15px;
+	margin-right: 5px;
+	width: 25px;
+	height: 20px;
+}
+.author-comment{
+	text-align: right;
+}
+.control-label{
+	max-width: 120px;
+	margin-right: 10px;
+	min-width: 120px;
+}
+.form-group{
+	padding-left: 3px;
+	display: flex;
+	margin-top: 5px;
+	align-items: center;
+	width: 100%;
+}
+.input{
+	
+	width: 100%;
+}
+.txt-comment{
+	width: 95%;
+	height: 50px;
+}
+.comment-title{
+	text-align: center;
+	font-size: 20px;
+}
