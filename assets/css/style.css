@@ -3,27 +3,12 @@
 	src: url('../fonts/BadheadTypeface.ttf');
 }
 
-#header{
-	background: url('../images/header_bg2.jpg');
-	background-size: cover;
-	height: 300px;
-	width: 100%;
-}
-#page-title{
-	font-family: BadheadTypeface;
-	font-size: 150px;
-	text-align: center;
-	color: #fff;
-	margin-top:50px;
-}
+
 
 #header{
 	background: #272727;
-	
 	height: 350px;
 	width: 100%;
-	
-	
 }	
 
 .main-header{
