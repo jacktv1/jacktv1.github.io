@@ -6,7 +6,7 @@
 	font-size: 30px;
 	text-align: center;
 }
-.container {
+#date-picker {
 	display: flex;
 	position: relative;
 	background-color: #EEEEEE;
@@ -24,6 +24,7 @@
 	border: none;
 	border-right: 1px solid #d3d3d3;
 	outline: none;
+	padding-left: 4px;
 }
 .addon {
 	background: url(../images/calendar.png);
@@ -64,13 +65,13 @@
 	height: auto;
 	box-sizing: border-box;
 }
-.day-of-week ul, .day ul {
+.day-of-week , .day {
 	margin: 0;
 	list-style: none;
 	padding: 0;
 	text-align: center;
 }
-.day-of-week ul li, .day ul li {
+.day-of-week li, .day li {
 	float: left;
 	padding: 6px 8px;
 	width: 8%;
@@ -80,6 +81,6 @@
 	background-color: #1ABC9C;
 	color: #fff;
 }
-.day ul li {
+.day li {
 	cursor: pointer;
 }
