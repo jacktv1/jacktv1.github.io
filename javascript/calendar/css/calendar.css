@@ -6,50 +6,43 @@
 	font-size: 30px;
 	text-align: center;
 }
+
 #date-picker {
 	display: flex;
 	position: relative;
-	background-color: #EEEEEE;
-	width: 200px;
-	border: 1px solid #d3d3d3;
+	width: 100%;
+	box-sizing: border-box;
 }
 .calendar {
 	width: 270px;
 	position: absolute;
-	top:32px;
+	top: 32px;
 	display: none;
 }
+/* Input date picker */
 .input {
-	background-color: #EEEEEE;
 	border: none;
-	border-right: 1px solid #d3d3d3;
 	outline: none;
-	padding-left: 4px;
-}
-.addon {
-	background: url(../images/calendar.png);
-	background-size: cover;
-	float: right;
-	height: 30px;
-	width: 30px;
-	background-color: #EEEEEE;
+	height: 20px;
+	background-image: url(../images/calendar.png);
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	background-position: right;
 	cursor: pointer;
+    border: 1px solid #d3d3d3;
+	border-radius: 4px;  
+    padding: 2px 10px;
 }
 .calendar-header {
 	display: flex;
-	background-color: #1ABC9C;
+	background-color: #003399;
 	padding: 8px 4px;
 }
-.btn {
-	background-color: #DDDDDD;
-	padding: 4px 4px;
-	outline: none;
-	border: 1px solid #EEEEEE;
-	color: #333;
-	cursor: pointer;
-	margin-left: 2px;
+.calendar-header .btn {
+	padding: 2px 4px !important;
 }
-#month, #year {
+#month, 
+#year {
 	margin-left: 2px;
 	padding: 4px 4px;
 }
@@ -65,20 +58,22 @@
 	height: auto;
 	box-sizing: border-box;
 }
-.day-of-week , .day {
+.day-of-week, 
+.day {
 	margin: 0;
 	list-style: none;
 	padding: 0;
 	text-align: center;
 }
-.day-of-week li, .day li {
+.day-of-week li,
+.day li {
 	float: left;
 	padding: 6px 8px;
 	width: 8%;
 	text-align: center;
 }
 .now {
-	background-color: #1ABC9C;
+	background-color: #003399;
 	color: #fff;
 }
 .day li {
