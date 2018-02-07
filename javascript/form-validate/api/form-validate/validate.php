@@ -26,6 +26,24 @@ class Validate
     		$userInfo->email = "not_valid";
     	}
 
+        $currentDay = new \DateTime();
+        $currentDay->format('Y-m-d');
+
+        $birthdayArray = explode("/",$userInfo->birthday);
+        $year = $birthdayArray[2];
+        $month = $birthdayArray[1];
+        $day = $birthdayArray[0]; 
+
+        $birthday = new \DateTime();
+        $birthday->setDate($year, $month, $day);
+        $birthday->format('Y-m-d');
+
+        if (strlen($userInfo->birthday) <= 0) {
+            $userInfo->birthday = "empty";
+        } elseif ($birthday > $currentDay) {
+            $userInfo->birthday = "not_valid";
+        }
+        
     	if (strlen($userInfo->birthday) <= 0) {
     		$userInfo->birthday = "not_valid";
     	}

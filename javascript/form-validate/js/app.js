@@ -66,9 +66,15 @@ window.onload = function() {
 				}
 
 				// Show message error if birthday is not valid
-				if (userInfo.birthday == "not_valid") {
+				if (userInfo.birthday == "empty") {
 					var birthdayError = document.getElementById('birthday-error');
 					birthdayError.classList.remove('d-none');
+					birthdayError.innerHTML = "Birthday is required";
+					allValid = false;
+				} else if (userInfo.birthday == "not_valid") {
+					var birthdayError = document.getElementById('birthday-error');
+					birthdayError.classList.remove('d-none');
+					birthdayError.innerHTML = "Birthday must before current day";
 					allValid = false;
 				}
 
