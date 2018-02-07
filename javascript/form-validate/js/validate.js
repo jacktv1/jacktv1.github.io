@@ -49,14 +49,20 @@ var validate = {
 		}
 	},
 	/**
-	* The below function check input birthday, return true if length of birthday more than 0 charater,
+	* The below function check input birthday, return true if length of birthday more than 0 charater
+	  and birthday is before current date
 	  otherwise return false 
-	* @param {string} birthday
+	* @param {string} birthdayString
 	* @return {bool}  
 	*/
-	checkBirthday(birthday) {
+	checkBirthday(birthdayString) {
 		var birthdayError = document.getElementById('birthday-error');
-		if (birthday.length > 0) {
+		var currentDay = new Date();
+		var birthdayArray = birthdayString.split("/");
+		var birthday = new Date(birthdayArray[2],birthdayArray[1]-1,birthdayArray[0]);
+
+
+		if (birthdayString.length > 0 && birthday < currentDay) {
 			birthdayError.classList.add('d-none');
 			return true;
 		} else {
