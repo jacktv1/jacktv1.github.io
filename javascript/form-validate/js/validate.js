@@ -49,9 +49,9 @@ var validate = {
 		}
 	},
 	/**
-	* The below function check input birthday, return true if length of birthday more than 0 charater
-	  and birthday is before current date
-	  otherwise return false 
+	* The below function check input birthday, return false if length of birthday less than 1 charater
+	  and birthday is after current date
+	  otherwise return true 
 	* @param {string} birthdayString
 	* @return {bool}  
 	*/
@@ -62,12 +62,18 @@ var validate = {
 		var birthday = new Date(birthdayArray[2],birthdayArray[1]-1,birthdayArray[0]);
 
 
-		if (birthdayString.length > 0 && birthday < currentDay) {
-			birthdayError.classList.add('d-none');
-			return true;
-		} else {
+		if (birthdayString.length <= 0) {
 			birthdayError.classList.remove('d-none');
 			return false;
+		} 
+		else if (birthday > currentDay) {
+			birthdayError.classList.remove('d-none');
+			birthdayError.innerHTML = "Birthday must before current day";
+			return false;
+		} else {
+			birthdayError.classList.add('d-none');
+			birthdayError.innerHTML = "Birthday is required";
+			return true;
 		}
 	}
 }
