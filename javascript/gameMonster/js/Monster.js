@@ -2,7 +2,6 @@ class Monster
 { 
 
 	constructor(level, posX, posY, defaultX, defaultY, toX, toY, width, height, context2D) {
-
 		this.level = level;
 		this.posX =  posX;
 		this.posY = posY;
@@ -12,10 +11,9 @@ class Monster
 		this.toY = toY;
 		this.width = width;
 		this.height = height;
-		this.died = false;
 		this.visible = true;
 		this.context2D = context2D;
-	  	this.drawMonster(this.level, this.posX, this.posY, this.width, this.height, this.canvas);
+	  	this.drawMonster(this.posX, this.posY);
 	}
 	/**
 	* This below method is draw monster
@@ -28,13 +26,15 @@ class Monster
 	*/
 	drawMonster(level = this.level, posX, posY, width = this.width, height = this.height, context2D = this.context2D) {
 		var monsterImage = new Image();
-		
 			switch(level) {
 				case 1:
-					monsterImage.src = "images/monsters/level1.png";
+					monsterImage.src = "images/monsters/level1.gif";
 					break;
 				case 2:
-					monsterImage.src = "images/monsters/level2.png";
+					monsterImage.src = "images/monsters/level2.gif";
+					break;
+				case 3:
+					monsterImage.src = "images/monsters/level3.gif";
 					break;
 			}		
 		context2D.drawImage(monsterImage, posX, posY, width, height);
