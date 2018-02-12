@@ -1,3 +1,5 @@
+//  define Map monster position
+
 const MAP_MONSTER_POS = [
 	[0 , 0 , 0 , 0 , 168, 168, 80 ,80],
 	[216 , 0 , 216 , 0 , 216, 168, 80 ,80],
@@ -8,10 +10,17 @@ const MAP_MONSTER_POS = [
 	[216 , 430 , 216 , 430 , 216, 262, 80 ,80],
 	[430 , 430 , 430 , 430 , 262, 262, 80,80]
 ];
+
+// define FPS
+
 const FPS = 60;
 const TICKS = 1000 / FPS;
 
+// init GamePlay
+
 var gamePlay = new GamePlay();
+
+// Check if browser not support requestAnimationFrame
 
 reqAnimation = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
 				window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||

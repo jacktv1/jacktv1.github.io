@@ -1,6 +1,10 @@
 class Monster
 { 
 
+	/**
+	* This below functio is constructor of class Monster
+	*/
+
 	constructor(level, posX, posY, defaultX, defaultY, toX, toY, width, height, context2D) {
 		this.level = level;
 		this.posX =  posX;
@@ -15,6 +19,7 @@ class Monster
 		this.context2D = context2D;
 	  	this.drawMonster(this.posX, this.posY);
 	}
+
 	/**
 	* This below method is draw monster
 	* @param {int} level
@@ -24,6 +29,7 @@ class Monster
 	* @param {int} height
 	* @param {int} canvas
 	*/
+
 	drawMonster(level = this.level, posX, posY, width = this.width, height = this.height, context2D = this.context2D) {
 		var monsterImage = new Image();
 			switch(level) {
@@ -40,6 +46,11 @@ class Monster
 		context2D.drawImage(monsterImage, posX, posY, width, height);
 		
 	}
+
+	/**
+	* This below functio redraw monster after update position
+	*/
+
 	moveMonster() {
 		if (this.visible)
 			this.drawMonster(this.level, this.posX, this.posY);
