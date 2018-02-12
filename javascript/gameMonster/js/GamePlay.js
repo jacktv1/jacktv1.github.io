@@ -133,59 +133,41 @@ class GamePlay
 
 
 			} else {
-		
+
+				// Draw game background
 				this.gameContext.drawImage(background,0,0,500,500);
-			}
-		}
-		background.onload = drawBackground;
 
-		var drawBtnRefresh = () => {
-			if (this.isStarted && !this.isGameOver) {
+				// Draw button Refresh
 				this.menuContext.drawImage(btnRefresh,340,42,40,38);
-			}
-		}
-		btnRefresh.onload = drawBtnRefresh;
 
-		var drawBtnPause = () => {
-			if (this.isStarted && !this.isGameOver) {
+				// Draw button Pause
 				this.menuContext.drawImage(btnPause,390,42,40,38);
-			}
-		}
-		btnPause.onload = drawBtnPause;
 
-		var drawBtnBomb = () => {
-			if (this.isStarted && !this.isGameOver) {
+				// Draw button boom
 				this.menuContext.drawImage(btnBomb,440,42,40,35);
 				this.menuContext.font = "italic bold 20px Consolas";
 				this.menuContext.fillStyle = "#F5DF0F";
 				this.menuContext.fillText(this.numberOfBomb,480,50);
-			}
-		}
-		btnBomb.onload = drawBtnBomb;
-		
-		var drawScore = () => {
-			if (this.isStarted && !this.isGameOver) {
+
+				// Draw score
 				this.menuContext.drawImage(scoreIcon,10, 40,40,40);
 				this.menuContext.font = "50px Consolas";
 				this.menuContext.fillStyle = "White";
 				this.menuContext.fillText(this.score, 60, 80);
-			}
-		}
-		scoreIcon.onload = drawScore;
 
-		var drawHeart = () => {
-			if (this.isStarted && !this.isGameOver) {
+				// Draw heart
 				for (var i = 0; i < this.heart; i++) {
 					this.menuContext.drawImage(heart, (35 * i) + 15, 5, 30, 30);
 				}
+
+				// Draw blood
+				for (var i = 0; i< this.bloodList.length; i++) {
+					this.gameContext.drawImage(blood,this.bloodList[i].posX,this.bloodList[i].posY,50,50);
+				}
+
 			}
 		}
-		heart.onload = drawHeart;
-		
-		for (var i = 0; i< this.bloodList.length; i++) {
-			this.gameContext.drawImage(blood,this.bloodList[i].posX,this.bloodList[i].posY,50,50);
-		}
-		
+		background.onload = drawBackground;
 	}
 
 	/**
