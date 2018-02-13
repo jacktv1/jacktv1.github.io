@@ -6,16 +6,14 @@ var slider = {
 	*/
 
 	showSlide() {
-		var sliderItems = document.getElementsByClassName('slider-item');
-		var sliderIndicators = document.getElementsByClassName('slider-indicator-item');
-		var numberOfSliderItem = sliderItems.length;
 
-		for (var i = 0; i < numberOfSliderItem; i++) {
-			sliderItems[i].classList.add('d-none');
-			sliderItems[i].classList.remove('d-block');
-			sliderIndicators[i].classList.remove('active');
-		}
-
+		var $sliderItems = $('.slider-item');
+		var $sliderIndicators = $('.slider-indicator-item');
+		var numberOfSliderItem = $sliderItems.length;
+	
+		$sliderItems.fadeOut(400);
+		$sliderIndicators.removeClass('active');
+		
 		if (slider.currentSliderIndex >= numberOfSliderItem) {
 			slider.currentSliderIndex = 0;
 		}
@@ -23,10 +21,9 @@ var slider = {
 		if (slider.currentSliderIndex < 0) {
 			slider.currentSliderIndex = numberOfSliderItem -1;
 		}
-
-		sliderItems[slider.currentSliderIndex].classList.add('d-block');
-		sliderItems[slider.currentSliderIndex].classList.remove('d-none');
-		sliderIndicators[slider.currentSliderIndex].classList.add('active');
+		
+		$sliderItems.eq(slider.currentSliderIndex).fadeIn(400);
+		$sliderIndicators.eq(slider.currentSliderIndex).addClass('active');
 	},
 
 	/**
@@ -35,6 +32,7 @@ var slider = {
 	*/
 
 	changeSlideIndex(direction) {
+
 		if (direction === "prev") {
 			slider.currentSliderIndex--;
 		} else if (direction === "next") {
@@ -50,6 +48,7 @@ var slider = {
 	*/
 
 	goToSlideIndex(index) {
+
 		slider.currentSliderIndex = index;
 		slider.showSlide();
 	},

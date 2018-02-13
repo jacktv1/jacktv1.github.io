@@ -3,6 +3,7 @@ namespace Api\FormValidate;
 
 class Validate
 {
+    
     /**
      * This below methoad check validate user info,
        validate and return each data is "valid" or "not_valid"

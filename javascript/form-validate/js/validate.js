@@ -1,10 +1,12 @@
 var validate = {
+
 	/**
 	* The below function check input username, return false if length of username less than 8 charater,
 	  otherwise return true 
 	* @param {string} username
 	* @return {bool}  
 	*/
+
 	checkUsername(username) {
 		var usernameError = document.getElementById('username-error');
 		if (username.length < 8) {
@@ -15,12 +17,14 @@ var validate = {
 			return true;
 		}
 	},
+
 	/**
 	* The below function check input password, return false if length of password less than 8 charater,
 	  otherwise return true 
 	* @param {string} password
 	* @return {bool}  
 	*/
+
 	checkPassword(password) {
 		var passwordError = document.getElementById('password-error');
 		if (password.length < 8) {
@@ -31,12 +35,14 @@ var validate = {
 			return true;
 		}
 	},
+
 	/**
 	* The below function check input email, return true if email format at least one "@" charater
 	  and one "." charater after "@", otherwise return false 
 	* @param {string} email
 	* @return {bool}  
 	*/
+
 	checkEmail(email) {
 		var emailError = document.getElementById('email-error');
 		var emailFormat = /[A-Za-z0-9_]+@{1}([A-Za-z]+\.{1}[A-Za-z]+)+/;
@@ -48,6 +54,7 @@ var validate = {
 			return false;
 		}
 	},
+
 	/**
 	* The below function check input birthday, return false if length of birthday less than 1 charater
 	  and birthday is after current date
@@ -55,6 +62,7 @@ var validate = {
 	* @param {string} birthdayString
 	* @return {bool}  
 	*/
+	
 	checkBirthday(birthdayString) {
 		var birthdayError = document.getElementById('birthday-error');
 		var currentDay = new Date();

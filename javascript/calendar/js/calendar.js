@@ -67,11 +67,13 @@ var calendar = {
 
 		myCalendar.innerHTML = 	calendaHTML;	
 	},
+
 	/**
 	* The below function print all day in a month, 
 	* @param {int} month
 	* @param {int} year  
 	*/
+	
 	initListDay(month, year) {
 		var day = new Date(year, month, 0);
 		var dayOfMonth = day.getDate();

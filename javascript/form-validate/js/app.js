@@ -1,4 +1,5 @@
 window.onload = function() {
+	
 	// init calendar
 	calendar.initListYear();
 	var nowDate = new Date();
