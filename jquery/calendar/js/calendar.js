@@ -87,7 +87,6 @@ var calendar = {
 		$myCalendar.html($myCalendar.html() + '<ul id="list-day" class="day">');
 		var $listDay = $("#list-day");	
 
-		console.log($listDay);
 		for (var i = 0; i < firstDayOfWeek; i++) {
 			$listDay.html($listDay.html() + '<li></li>');
 		}
@@ -99,6 +98,7 @@ var calendar = {
 			else
 				$listDay.html($listDay.html() + '<li class="date" data-day="' + i + '">' + i + '</li>');
 		}
+
 		$myCalendar.html($myCalendar.html() + '</ul>');
 
 		calendar.calendarControl();
@@ -185,7 +185,7 @@ var calendar = {
 			$txt_date.val(stringDate);
 
 			var $myCalendar = $("#myCalendar");
-			$myCalendar.css('display', "none");
+			$myCalendar.toggleClass('d-block');
 		});
 		
 	}
