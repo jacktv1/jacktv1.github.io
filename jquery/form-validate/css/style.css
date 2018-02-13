@@ -1,0 +1,52 @@
+.d-none {
+	display: none;
+}
+#form-info {
+	max-width: 800px;
+	margin: 50px 25%;
+	padding: 15px 30px;
+}
+.form-group {
+	margin-bottom: 10px;
+	vertical-align: middle;
+	display: grid;
+	grid-template-columns: 80px 200px 480px;
+}
+.form-label {
+	font-weight: bold;
+	line-height: 1.5;
+}
+.form-control {
+	width: 100%;
+	height: 20px;
+	border-radius: 4px;
+	border: none;
+	border: 1px solid #d3d3d3;
+	outline: none;
+	padding: 2px 0;
+	max-width: 100%;
+}
+.form-message {
+	margin-left: 10px;
+	line-height: 1.5;
+	font-weight: bold;
+	color: red;
+}
+.btn {
+	background-color: #DDDDDD;
+	padding: 8px 16px;
+	outline: none;
+	border: 1px solid #EEEEEE;
+	border-radius: 4px;
+	color: #333;
+	cursor: pointer;
+	margin-left: 2px;
+}
+.btn-primary {
+	background-color: #005cb2;
+	color: #fff;
+}
+.btn-default {
+	background-color: #4b636e;
+	color: #fff;
+}
