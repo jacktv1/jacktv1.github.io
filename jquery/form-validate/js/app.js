@@ -34,7 +34,7 @@ $(document).ready(function() {
 			}
 
 			var userInfo = JSON.stringify(dataObject);
-			$.ajx({
+			$.ajax({
 				url: url,
 				contentType: 'application/x-www-form-urlencoded',
 			    type : "post",
