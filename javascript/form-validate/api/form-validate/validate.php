@@ -3,17 +3,18 @@ namespace Api\FormValidate;
 
 class Validate
 {
-    
+
     /**
      * This below methoad check validate user info,
-       validate and return each data is "valid" or "not_valid"
+     * validate and return each data is "valid" or "not_valid"
 	 * @param {json} userInfo
 	 * @return {json} userInfo
      */
+
     public function validateUserInfo($userInfo)
     {
     	$userInfo = json_decode($userInfo);
-
+        echo $userInfo();
     	if (strlen($userInfo->username) < 8) {
     		$userInfo->username = "not_valid";
     	}
@@ -33,7 +34,7 @@ class Validate
         $birthdayArray = explode("/",$userInfo->birthday);
         $year = $birthdayArray[2];
         $month = $birthdayArray[1];
-        $day = $birthdayArray[0]; 
+        $day = $birthdayArray[0];
 
         $birthday = new \DateTime();
         $birthday->setDate($year, $month, $day);
@@ -44,7 +45,7 @@ class Validate
         } elseif ($birthday > $currentDay) {
             $userInfo->birthday = "not_valid";
         }
-        
+
     	if (strlen($userInfo->birthday) <= 0) {
     		$userInfo->birthday = "not_valid";
     	}
