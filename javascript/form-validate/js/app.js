@@ -34,7 +34,6 @@ window.onload = function() {
 			}
 
 			var userInfo = JSON.stringify(dataObject);
-			console.log(userInfo);
 			fetch(url, {
 				headers: {
 			      'Content-Type': 'application/x-www-form-urlencoded'
@@ -42,7 +41,7 @@ window.onload = function() {
 			    method : "post",
 			    body: `userInfo=${userInfo}`
 			})
-			.then( (response) => response.text())
+			.then( (response) => response.json())
 			.then((userInfo) => {
 				console.log(userInfo);
 				var allValid = true;
