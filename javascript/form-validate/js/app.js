@@ -51,6 +51,8 @@ window.onload = function() {
 					var usernameError = document.getElementById('username-error');
 					usernameError.classList.remove('d-none');
 					allValid = false;
+				} else {
+					usernameError.classList.add('d-none');
 				}
 
 				// Show message error if password is not valid
@@ -58,6 +60,8 @@ window.onload = function() {
 					var passwordError = document.getElementById('password-error');
 					passwordError.classList.remove('d-none');
 					allValid = false;
+				} else {
+					passwordError.classList.add('d-none');
 				}
 
 				// Show message error if email is not valid
@@ -65,6 +69,8 @@ window.onload = function() {
 					var emailError = document.getElementById('email-error');
 					emailError.classList.remove('d-none');
 					allValid = false;
+				} else {
+					emailError.classList.add('d-none');
 				}
 
 				// Show message error if birthday is not valid
@@ -78,6 +84,8 @@ window.onload = function() {
 					birthdayError.classList.remove('d-none');
 					birthdayError.innerHTML = "Birthday must before current day";
 					allValid = false;
+				} else {
+						birthdayError.classList.add('d-none');
 				}
 
 				// alert if all data is valid
