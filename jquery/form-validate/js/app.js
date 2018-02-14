@@ -17,13 +17,13 @@ $(document).ready(function() {
 		var $email = $('#email');
 		var $birthday = $('#birthday');
 
-		// var $validUsername = validate.checkUsername($username.val());
-		// var $validPassword = validate.checkPassword($password.val());
-		// var $validEmail = validate.checkEmail($email.val());
-		// var $validBirthday = validate.checkBirthday($birthday.val());
+		var $validUsername = validate.checkUsername($username.val());
+		var $validPassword = validate.checkPassword($password.val());
+		var $validEmail = validate.checkEmail($email.val());
+		var $validBirthday = validate.checkBirthday($birthday.val());
 
 		// If validate with javascript is passed then validate with php through fetch api
-		// if ($validUsername && $validPassword && $validEmail && $validBirthday) {
+		if ($validUsername && $validPassword && $validEmail && $validBirthday) {
 
 			var url = "api/form-validate/index.php";
 			var dataObject = {
@@ -43,7 +43,6 @@ $(document).ready(function() {
 			})
 			.done((response) => {
 				var userInfo = $.parseJSON(response);
-				console.log(userInfo);
 				var allValid = true;
 
 				// Show message error if username is not valid
@@ -96,7 +95,7 @@ $(document).ready(function() {
 					alert("All data is valid");
 				}
 			});
-		// }
+		}
 		return false;
 	});
 });
