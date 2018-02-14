@@ -32,7 +32,9 @@ window.onload = function() {
 				"email": email.value,
 				"birthday": birthday.value,
 			}
+
 			var userInfo = JSON.stringify(dataObject);
+			console.log(userInfo);
 			fetch(url, {
 				headers: {
 			      'Content-Type': 'application/x-www-form-urlencoded'
