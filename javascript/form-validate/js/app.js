@@ -47,6 +47,7 @@ window.onload = function() {
 
 				// Show message error if username is not valid
 				if (userInfo.username == "not_valid") {
+					onsole.log("username not valid");
 					var usernameError = document.getElementById('username-error');
 					usernameError.classList.remove('d-none');
 					allValid = false;
