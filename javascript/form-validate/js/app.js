@@ -1,5 +1,5 @@
 window.onload = function() {
-	
+
 	// init calendar
 	calendar.initListYear();
 	var nowDate = new Date();
@@ -17,14 +17,14 @@ window.onload = function() {
 		var email = document.getElementById('email');
 		var birthday = document.getElementById('birthday');
 
-		var validUsername = validate.checkUsername(username.value);
-		var validPassword = validate.checkPassword(password.value);
-		var validEmail = validate.checkEmail(email.value);
-		var validBirthday = validate.checkBirthday(birthday.value);
+		// var validUsername = validate.checkUsername(username.value);
+		// var validPassword = validate.checkPassword(password.value);
+		// var validEmail = validate.checkEmail(email.value);
+		// var validBirthday = validate.checkBirthday(birthday.value);
 
 		// If validate with javascript is passed then validate with php through fetch api
-		if (validUsername && validPassword && validEmail && validBirthday) {
-			
+		// if (validUsername && validPassword && validEmail && validBirthday) {
+
 			var url = "api/form-validate/index.php";
 			var dataObject = {
 				"username": username.value,
@@ -84,14 +84,7 @@ window.onload = function() {
 					alert("All data is valid");
 				}
 			});
-		}
+		// }
 		return false;
 	};
 };
-
-
-
-	
-
-
-		
