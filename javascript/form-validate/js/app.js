@@ -17,13 +17,13 @@ window.onload = function() {
 		var email = document.getElementById('email');
 		var birthday = document.getElementById('birthday');
 
-		// var validUsername = validate.checkUsername(username.value);
-		// var validPassword = validate.checkPassword(password.value);
-		// var validEmail = validate.checkEmail(email.value);
-		// var validBirthday = validate.checkBirthday(birthday.value);
+		var validUsername = validate.checkUsername(username.value);
+		var validPassword = validate.checkPassword(password.value);
+		var validEmail = validate.checkEmail(email.value);
+		var validBirthday = validate.checkBirthday(birthday.value);
 
 		// If validate with javascript is passed then validate with php through fetch api
-		// if (validUsername && validPassword && validEmail && validBirthday) {
+		if (validUsername && validPassword && validEmail && validBirthday) {
 
 			var url = "api/form-validate/index.php";
 			var dataObject = {
@@ -42,13 +42,11 @@ window.onload = function() {
 			})
 			.then( (response) => response.json())
 			.then((userInfo) => {
-				console.log(userInfo);
+
 				var allValid = true;
-				console.log(userInfo.username);
-				console.log(userInfo.username == "not_valid");
+
 				// Show message error if username is not valid
 				if (userInfo.username == "not_valid") {
-					console.log("username not valid");
 					var usernameError = document.getElementById('username-error');
 					usernameError.classList.remove('d-none');
 					allValid = false;
@@ -86,7 +84,7 @@ window.onload = function() {
 					alert("All data is valid");
 				}
 			});
-		// }
+		}
 		return false;
 	};
 };

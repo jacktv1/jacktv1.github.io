@@ -40,8 +40,8 @@ $(document).ready(function() {
 			    type : "post",
 			    data: `userInfo=${userInfo}`,
 			})
-			.done((userInfo) => {
-
+			.done((response) => {
+				var userInfo = $.parseJSON(response);
 				var allValid = true;
 
 				// Show message error if username is not valid
