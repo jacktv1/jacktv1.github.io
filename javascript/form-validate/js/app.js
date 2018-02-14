@@ -42,7 +42,7 @@ window.onload = function() {
 			})
 			.then( (response) => response.text())
 			.then((userInfo) => {
-
+				console.log(userInfo);
 				var allValid = true;
 
 				// Show message error if username is not valid
