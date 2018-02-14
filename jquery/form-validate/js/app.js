@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 		// If validate with javascript is passed then validate with php through fetch api
 		// if ($validUsername && $validPassword && $validEmail && $validBirthday) {
-		if (1 = 1) {
+
 			var url = "api/form-validate/index.php";
 			var dataObject = {
 				"username": $username.value,
@@ -83,7 +83,7 @@ $(document).ready(function() {
 					alert("All data is valid");
 				}
 			});
-		}
+		// }
 		return false;
 	});
 });
