@@ -33,7 +33,8 @@ $(document).ready(function() {
 				"birthday": $birthday.value,
 			}
 
-			var userInfo = JSON.stringify(dataObject);
+			var userInfo = $.parseJSON(dataObject);
+			console.log(userInfo);
 			$.ajax({
 				url: url,
 				contentType: 'application/x-www-form-urlencoded',
