@@ -40,7 +40,7 @@ window.onload = function() {
 			    method : "post",
 			    body: `userInfo=${userInfo}`
 			})
-			.then( (response) => response.text())
+			.then( (response) => response.json())
 			.then((userInfo) => {
 				console.log(userInfo);
 				var allValid = true;
