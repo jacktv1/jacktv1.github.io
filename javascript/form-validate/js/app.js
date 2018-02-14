@@ -47,8 +47,9 @@ window.onload = function() {
 				var allValid = true;
 
 				// Show message error if username is not valid
+				var usernameError = document.getElementById('username-error');
+
 				if (userInfo.username == "not_valid") {
-					var usernameError = document.getElementById('username-error');
 					usernameError.classList.remove('d-none');
 					allValid = false;
 				} else {
@@ -56,8 +57,9 @@ window.onload = function() {
 				}
 
 				// Show message error if password is not valid
+				var passwordError = document.getElementById('password-error');
+
 				if (userInfo.password == "not_valid") {
-					var passwordError = document.getElementById('password-error');
 					passwordError.classList.remove('d-none');
 					allValid = false;
 				} else {
@@ -65,8 +67,9 @@ window.onload = function() {
 				}
 
 				// Show message error if email is not valid
+				var emailError = document.getElementById('email-error');
+
 				if (userInfo.email == "not_valid") {
-					var emailError = document.getElementById('email-error');
 					emailError.classList.remove('d-none');
 					allValid = false;
 				} else {
@@ -74,13 +77,13 @@ window.onload = function() {
 				}
 
 				// Show message error if birthday is not valid
+				var birthdayError = document.getElementById('birthday-error');
+				
 				if (userInfo.birthday == "empty") {
-					var birthdayError = document.getElementById('birthday-error');
 					birthdayError.classList.remove('d-none');
 					birthdayError.innerHTML = "Birthday is required";
 					allValid = false;
 				} else if (userInfo.birthday == "not_valid") {
-					var birthdayError = document.getElementById('birthday-error');
 					birthdayError.classList.remove('d-none');
 					birthdayError.innerHTML = "Birthday must before current day";
 					allValid = false;
