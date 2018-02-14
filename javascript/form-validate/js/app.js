@@ -44,10 +44,11 @@ window.onload = function() {
 			.then((userInfo) => {
 				console.log(userInfo);
 				var allValid = true;
-
+				console.log(userInfo.username);
+				console.log(userInfo.username == "not_valid");
 				// Show message error if username is not valid
 				if (userInfo.username == "not_valid") {
-					onsole.log("username not valid");
+					console.log("username not valid");
 					var usernameError = document.getElementById('username-error');
 					usernameError.classList.remove('d-none');
 					allValid = false;
