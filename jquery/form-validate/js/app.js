@@ -27,12 +27,12 @@ $(document).ready(function() {
 
 			var url = "api/form-validate/index.php";
 			var dataObject = {
-				"username": $username.value,
-				"password": $password.value,
-				"email": $email.value,
-				"birthday": $birthday.value,
+				"username": $username.val(),
+				"password": $password.val(),
+				"email": $email.val(),
+				"birthday": $birthday.val(),
 			}
-
+			console.log(dataObject);
 			var userInfo = $.parseJSON(dataObject);
 			console.log(userInfo);
 			$.ajax({
