@@ -10,7 +10,7 @@
 	margin-bottom: 10px;
 	vertical-align: middle;
 	display: grid;
-	grid-template-columns: 80px 200px 480px;
+	grid-template-columns: 120px 200px 480px;
 }
 .form-label {
 	font-weight: bold;

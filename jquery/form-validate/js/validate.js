@@ -2,55 +2,55 @@ var validate = {
 
 	/**
 	* The below function check input username, return false if length of username less than 8 charater,
-	  otherwise return true 
+	  otherwise return true
 	* @param {string} username
-	* @return {bool}  
+	* @return {bool}
 	*/
 
 	checkUsername(username) {
-		var usernameError = document.getElementById('username-error');
+		var $usernameError = $('#username-error');
 		if (username.length < 8) {
-			usernameError.classList.remove('d-none');
+			$usernameError.removeClass('d-none');
 			return false;
 		} else {
-			usernameError.classList.add('d-none');
+			$usernameError.addClass('d-none');
 			return true;
 		}
 	},
 
 	/**
 	* The below function check input password, return false if length of password less than 8 charater,
-	  otherwise return true 
+	  otherwise return true
 	* @param {string} password
-	* @return {bool}  
+	* @return {bool}
 	*/
 
 	checkPassword(password) {
-		var passwordError = document.getElementById('password-error');
+		var $passwordError = $('#password-error');
 		if (password.length < 8) {
-			passwordError.classList.remove('d-none');
+			$passwordError.removeClass('d-none');
 			return false;
 		} else {
-			passwordError.classList.add('d-none');
+			$passwordError.addClass('d-none');
 			return true;
 		}
 	},
 
 	/**
 	* The below function check input email, return true if email format at least one "@" charater
-	  and one "." charater after "@", otherwise return false 
+	  and one "." charater after "@", otherwise return false
 	* @param {string} email
-	* @return {bool}  
+	* @return {bool}
 	*/
 
 	checkEmail(email) {
-		var emailError = document.getElementById('email-error');
+		var $emailError = $('#email-error');
 		var emailFormat = /[A-Za-z0-9_]+@{1}([A-Za-z]+\.{1}[A-Za-z]+)+/;
 		if (email.match(emailFormat)) {
-			emailError.classList.add('d-none');
+			$emailError.addClass('d-none');
 			return true;
 		} else {
-			emailError.classList.remove('d-none');
+			$emailError.removeClass('d-none');
 			return false;
 		}
 	},
@@ -58,29 +58,29 @@ var validate = {
 	/**
 	* The below function check input birthday, return false if length of birthday less than 1 charater
 	  and birthday is after current date
-	  otherwise return true 
+	  otherwise return true
 	* @param {string} birthdayString
-	* @return {bool}  
+	* @return {bool}
 	*/
-	
+
 	checkBirthday(birthdayString) {
-		var birthdayError = document.getElementById('birthday-error');
+		var $birthdayError = $('#birthday-error');
 		var currentDay = new Date();
 		var birthdayArray = birthdayString.split("/");
 		var birthday = new Date(birthdayArray[2],birthdayArray[1]-1,birthdayArray[0]);
 
 
 		if (birthdayString.length <= 0) {
-			birthdayError.classList.remove('d-none');
+			$birthdayError.removeClass('d-none');
 			return false;
-		} 
+		}
 		else if (birthday > currentDay) {
-			birthdayError.classList.remove('d-none');
-			birthdayError.innerHTML = "Birthday must before current day";
+			$birthdayError.removeClass('d-none');
+			$birthdayError.html("Birthday must before current day");
 			return false;
 		} else {
-			birthdayError.classList.add('d-none');
-			birthdayError.innerHTML = "Birthday is required";
+			$birthdayError.addClass('d-none');
+			$birthdayError.html("Birthday is required");
 			return true;
 		}
 	}
