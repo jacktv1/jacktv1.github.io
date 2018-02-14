@@ -32,9 +32,9 @@ $(document).ready(function() {
 				"email": $email.val(),
 				"birthday": $birthday.val(),
 			}
-			console.log(dataObject);
-			var userInfo = $.parseJSON(dataObject);
-			console.log(userInfo);
+
+			var userInfo = JSON.stringify(dataObject);
+
 			$.ajax({
 				url: url,
 				contentType: 'application/x-www-form-urlencoded',
