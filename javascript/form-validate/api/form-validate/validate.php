@@ -14,7 +14,7 @@ class Validate
     public function validateUserInfo($userInfo)
     {
     	$userInfo = json_decode($userInfo);
-        echo $userInfo();
+        var_dump($userInfo);
     	if (strlen($userInfo->username) < 8) {
     		$userInfo->username = "not_valid";
     	}
