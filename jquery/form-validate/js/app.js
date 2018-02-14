@@ -42,6 +42,7 @@ $(document).ready(function() {
 			})
 			.done((response) => {
 				var userInfo = $.parseJSON(response);
+				console.log(userInfo);
 				var allValid = true;
 
 				// Show message error if username is not valid
