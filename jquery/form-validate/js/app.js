@@ -17,13 +17,13 @@ $(document).ready(function() {
 		var $email = $('#email');
 		var $birthday = $('#birthday');
 
-		var $validUsername = validate.checkUsername($username.val());
-		var $validPassword = validate.checkPassword($password.val());
-		var $validEmail = validate.checkEmail($email.val());
-		var $validBirthday = validate.checkBirthday($birthday.val());
+		// var $validUsername = validate.checkUsername($username.val());
+		// var $validPassword = validate.checkPassword($password.val());
+		// var $validEmail = validate.checkEmail($email.val());
+		// var $validBirthday = validate.checkBirthday($birthday.val());
 
 		// If validate with javascript is passed then validate with php through fetch api
-		if ($validUsername && $validPassword && $validEmail && $validBirthday) {
+		// if ($validUsername && $validPassword && $validEmail && $validBirthday) {
 
 			var url = "api/form-validate/index.php";
 			var dataObject = {
@@ -45,37 +45,48 @@ $(document).ready(function() {
 				var allValid = true;
 
 				// Show message error if username is not valid
+				var $usernameError = $('#username-error');
+
 				if (userInfo.username == "not_valid") {
-					var $usernameError = $('#username-error');
 					$usernameError.removeClass('d-none');
 					allValid = false;
+				} else {
+					$usernameError.addClass('d-none');
 				}
 
 				// Show message error if password is not valid
+				var $passwordError = $('#password-error');
+
 				if (userInfo.password == "not_valid") {
-					var $passwordError = $('#password-error');
 					$passwordError.removeClass('d-none');
 					allValid = false;
+				} else {
+					$passwordError.addClass('d-none');
 				}
 
 				// Show message error if email is not valid
+				var $emailError = $('#email-error');
+
 				if (userInfo.email == "not_valid") {
-					var $emailError = $('#email-error');
 					$emailError.removeClass('d-none');
 					allValid = false;
+				} else {
+						$emailError.addClass('d-none');
 				}
 
 				// Show message error if birthday is not valid
+				var $birthdayError = $('#birthday-error');
+
 				if (userInfo.birthday == "empty") {
-					var $birthdayError = $('#birthday-error');
 					$birthdayError.removeClass('d-none');
 					$birthdayError.html("Birthday is required");
 					allValid = false;
 				} else if (userInfo.birthday == "not_valid") {
-					var $birthdayError = $('#birthday-error');
 					$birthdayError.removeClass('d-none');
 					$birthdayError.html("Birthday must before current day");
 					allValid = false;
+				} else {
+					$birthdayError.addClass('d-none');
 				}
 
 				// alert if all data is valid
@@ -83,7 +94,7 @@ $(document).ready(function() {
 					alert("All data is valid");
 				}
 			});
-		}
+		// }
 		return false;
 	});
 });

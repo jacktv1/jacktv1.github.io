@@ -1,5 +1,5 @@
 .d-none {
-	display: none;
+	display: none !important;
 }
 #form-info {
 	max-width: 800px;
@@ -31,6 +31,7 @@
 	line-height: 1.5;
 	font-weight: bold;
 	color: red;
+	display: block;
 }
 .btn {
 	background-color: #DDDDDD;
