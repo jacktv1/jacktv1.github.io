@@ -419,22 +419,25 @@ class GamePlay
 
 	clickOnMenuControl(event) {
 		var offsetMenu = this.canvasMenu.offset();
-		var mouseClickX = event.pageX - offsetMenu.Left;
-		var mouseClickY = event.pageY - offsetMenu.Top;
+		var mouseClickX = event.pageX - offsetMenu.left;
+		var mouseClickY = event.pageY - offsetMenu.top;
 
 		//  if click on position of button pause game or button refresh or button bomb
 
 		if (mouseClickX >= 390 && mouseClickX <= 430 && mouseClickY >= 42 && mouseClickY <= 80) {
+
 			this.isPaused = !this.isPaused;
 			this.gameContext.fillStyle = "#000";
 			this.gameContext.font = "30px Arial";
 			this.gameContext.fillText("PAUSE", 220, 220);
 			requestAnimationFrame(this.gameController.bind(this));
+
 		} else if (mouseClickX >= 340 && mouseClickX <= 380 && mouseClickY >= 42 && mouseClickY <= 80) {
 
 			this.start();
+
 		} else if (mouseClickX >= 440 && mouseClickX <= 480 && mouseClickY >= 42 && mouseClickY <= 77) {
-			
+
 			for (var i = 0; i < this.numberOfMonster; i++) {
 				if (this.numberOfBomb > 0) {
 					this.numberOfBomb--;
