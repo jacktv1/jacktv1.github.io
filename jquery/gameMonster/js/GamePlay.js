@@ -5,17 +5,19 @@ class GamePlay
 	* This below functio is constructor of class GamePlay
 	*/
 
-	constructor() {
+	constructor($canvasMenu, $canvasGameEnviroment) {
 
-		this.canvasMenu = document.getElementById('menu');
-		this.menuContext = this.canvasMenu.getContext("2d");
-		this.canvasGameEnviroment = document.getElementById('gameplay');
-		this.gameContext = this.canvasGameEnviroment.getContext("2d");
+		this.canvasMenu = $canvasMenu;
+		this.menuContext = this.canvasMenu[0].getContext("2d");
+		this.canvasGameEnviroment = $canvasGameEnviroment;
+		this.gameContext = this.canvasGameEnviroment[0].getContext("2d");
 
 		this.destroyMonsterSound = new Audio("sounds/destroy_monster_sound.mp3");
 		this.boomSound = new Audio("sounds/boom_sound.mp3");
 
 		this.start();
+		this.canvasMenu.on('click', this.clickOnMenuControl.bind(this));
+		this.canvasGameEnviroment.on('click', this.clickOnGameArea.bind(this));
 	}
 
 	/**
@@ -41,8 +43,6 @@ class GamePlay
 
 		this.initGameEnviroment();
 		this.initListMonster();
-		this.clickOnGameArea();
-		this.clickOnMenuControl();
 	}
 
 	/**
@@ -302,6 +302,13 @@ class GamePlay
 			else {
 				this.listMonster[i].moveMonster();
 			}
+
+			if (parseInt(this.score) <= 0) {
+				this.isGameOver = true;
+				if ((sessionStorage.getItem("highScore") || 0) < parseInt(this.score)) {
+					sessionStorage.setItem("highScore", this.score);
+				}
+			}
 		}
 
 	}
@@ -310,79 +317,74 @@ class GamePlay
 	* This below function is event when click on game canvas
 	*/
 
-	clickOnGameArea() {
-		var onClickMonster = event => {
-			var mouseClickX = event.pageX - this.canvasGameEnviroment.offsetLeft;
-			var mouseClickY = event.pageY - this.canvasGameEnviroment.offsetTop;
+	clickOnGameArea(event) {
+		var offsetGame = this.canvasGameEnviroment.offset();
+		var mouseClickX = event.pageX - offsetGame.left;
+		var mouseClickY = event.pageY - offsetGame.top;
 
-			// Check if click on button "start game" or click on button "try again" or click on monster
+		// Check if click on button "start game" or click on button "try again" or click on monster
 
-			if (!this.isStarted && mouseClickX >= 100 && mouseClickX <= 400 && mouseClickY >= 155 && mouseClickY <= 215) {
+		if (!this.isStarted && mouseClickX >= 100 && mouseClickX <= 400 && mouseClickY >= 155 && mouseClickY <= 215) {
 
-				this.isStarted = true;
-				requestAnimationFrame(this.gameController.bind(this));
+			this.isStarted = true;
+			requestAnimationFrame(this.gameController.bind(this));
 
-			} else if (this.isGameOver && mouseClickX >= 100 && mouseClickX <= 400 && mouseClickY >= 155 && mouseClickY <= 215) {
+		} else if (this.isGameOver && mouseClickX >= 100 && mouseClickX <= 400 && mouseClickY >= 155 && mouseClickY <= 215) {
 
-				this.start();
-				this.isStarted = true;
-				requestAnimationFrame(this.gameController.bind(this));
+			this.start();
+			this.isStarted = true;
+			requestAnimationFrame(this.gameController.bind(this));
 
-			} else if(this.isStarted && !this.isGameOver){
+		} else if(this.isStarted && !this.isGameOver) {
 
-				var clickOutMonster = -1;
+			var clickOutMonster = -1;
 
-				for (var i = 0; i < this.numberOfMonster; i++) {
+			for (var i = 0; i < this.numberOfMonster; i++) {
 
-					// if mouse postion is on monster
+				// if mouse postion is on monster
 
-					if (mouseClickX >= this.listMonster[i].posX &&
-						mouseClickX <= (this.listMonster[i].posX + this.listMonster[i].width) &&
-						mouseClickY >= this.listMonster[i].posY &&
-						mouseClickY <= (this.listMonster[i].posY + this.listMonster[i].height))
-					{
-						var blood = {
-							posX: mouseClickX,
-							posY: mouseClickY
-						};
-						this.bloodList.push(blood);
-						if (this.bloodList.length > 5) {
-							this.bloodList.splice(0,1);
-						}
-						this.score = parseInt(this.score) + 5;
-						this.listMonster[i].died = true;
-						clickOutMonster = 0;
-						this.destroyMonsterSound.currentTime = 0
-						this.destroyMonsterSound.play();
-
-					} else {
-						if (clickOutMonster != 0)
-							clickOutMonster = 1;
-
+				if (mouseClickX >= this.listMonster[i].posX &&
+					mouseClickX <= (this.listMonster[i].posX + this.listMonster[i].width) &&
+					mouseClickY >= this.listMonster[i].posY &&
+					mouseClickY <= (this.listMonster[i].posY + this.listMonster[i].height))
+				{
+					var blood = {
+						posX: mouseClickX,
+						posY: mouseClickY
+					};
+					this.bloodList.push(blood);
+					if (this.bloodList.length > 5) {
+						this.bloodList.splice(0,1);
 					}
-				}
-				if (clickOutMonster == -1)
+					this.score = parseInt(this.score) + 5;
+					this.listMonster[i].died = true;
 					clickOutMonster = 0;
+					this.destroyMonsterSound.currentTime = 0
+					this.destroyMonsterSound.play();
 
-				this.heart -= clickOutMonster;
-				this.score = parseInt(this.score) - (5 * clickOutMonster);
-
-				if (this.heart == 0 || parseInt(this.score) == 0) {
-					this.isGameOver = true;
-					if ((sessionStorage.getItem("highScore") || 0) < parseInt(this.score)) {
-						sessionStorage.setItem("highScore", this.score);
-					}
 				} else {
+					if (clickOutMonster != 0)
+						clickOutMonster = 1;
 
-					//computing level
-
-					this.levelControl();
 				}
-
 			}
+			if (clickOutMonster == -1)
+				clickOutMonster = 0;
 
+			this.heart -= clickOutMonster;
+			this.score = parseInt(this.score) - (5 * clickOutMonster);
+
+			if (this.heart == 0 || parseInt(this.score) == 0) {
+				this.isGameOver = true;
+				if ((sessionStorage.getItem("highScore") || 0) < parseInt(this.score)) {
+					sessionStorage.setItem("highScore", this.score);
+				}
+			} else {
+
+				//computing level
+				this.levelControl();
+			}
 		}
-		this.canvasGameEnviroment.onclick = onClickMonster;
 	}
 
 	/**
@@ -415,44 +417,44 @@ class GamePlay
 	* This below function is event when click on the menu control canvas
 	*/
 
-	clickOnMenuControl() {
-		var clickOnMenuControl = event => {
-			var mouseClickX = event.pageX - this.canvasMenu.offsetLeft;
-			var mouseClickY = event.pageY - this.canvasMenu.offsetTop;
+	clickOnMenuControl(event) {
+		var offsetMenu = this.canvasMenu.offset();
+		var mouseClickX = event.pageX - offsetMenu.Left;
+		var mouseClickY = event.pageY - offsetMenu.Top;
 
-			//  if click on position of button pause game or button refresh or button bomb
+		//  if click on position of button pause game or button refresh or button bomb
 
-			if (mouseClickX >= 390 && mouseClickX <= 430 && mouseClickY >= 42 && mouseClickY <= 80) {
-				this.isPaused = !this.isPaused;
-				this.gameContext.fillStyle = "#000";
-				this.gameContext.font = "30px Arial";
-				this.gameContext.fillText("PAUSE", 220, 220);
-				requestAnimationFrame(this.gameController.bind(this));
-			} else if (mouseClickX >= 340 && mouseClickX <= 380 && mouseClickY >= 42 && mouseClickY <= 80) {
-				this.start();
-			} else if (mouseClickX >= 440 && mouseClickX <= 480 && mouseClickY >= 42 && mouseClickY <= 77) {
-				for (var i = 0; i < this.numberOfMonster; i++) {
-					if (this.numberOfBomb > 0) {
-						this.numberOfBomb--;
-						var blood = {
-							posX: this.listMonster[i].posX,
-							posY: this.listMonster[i].posY
-						};
-						this.bloodList.push(blood);
-						if (this.bloodList.length > 5) {
-							this.bloodList.splice(0,1);
-						}
-						this.score = parseInt(this.score) + 5;
-						this.listMonster[i].died = true;
+		if (mouseClickX >= 390 && mouseClickX <= 430 && mouseClickY >= 42 && mouseClickY <= 80) {
+			this.isPaused = !this.isPaused;
+			this.gameContext.fillStyle = "#000";
+			this.gameContext.font = "30px Arial";
+			this.gameContext.fillText("PAUSE", 220, 220);
+			requestAnimationFrame(this.gameController.bind(this));
+		} else if (mouseClickX >= 340 && mouseClickX <= 380 && mouseClickY >= 42 && mouseClickY <= 80) {
 
-						this.levelControl();
-						this.boomSound.currentTime = 0
-						this.boomSound.play();
+			this.start();
+		} else if (mouseClickX >= 440 && mouseClickX <= 480 && mouseClickY >= 42 && mouseClickY <= 77) {
+			
+			for (var i = 0; i < this.numberOfMonster; i++) {
+				if (this.numberOfBomb > 0) {
+					this.numberOfBomb--;
+					var blood = {
+						posX: this.listMonster[i].posX,
+						posY: this.listMonster[i].posY
+					};
+					this.bloodList.push(blood);
+					if (this.bloodList.length > 5) {
+						this.bloodList.splice(0,1);
 					}
+					this.score = parseInt(this.score) + 5;
+					this.listMonster[i].died = true;
+
+					this.levelControl();
+					this.boomSound.currentTime = 0
+					this.boomSound.play();
 				}
 			}
 		}
-		this.canvasMenu.onclick = clickOnMenuControl;
 	}
 
 	/**
