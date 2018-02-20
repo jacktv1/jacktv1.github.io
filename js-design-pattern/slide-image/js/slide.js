@@ -9,12 +9,15 @@ var Slider = (function() {
 	var _showSlide = function() {
 		var sliderItems = document.getElementsByClassName('slider-item');
 		var sliderIndicators = document.getElementsByClassName('slider-indicator-item');
+		var sliderThumbnail = document.getElementsByClassName('slide-thumbnail-item');
 		var numberOfSliderItem = sliderItems.length;
 
 		for (var i = 0; i < numberOfSliderItem; i++) {
 			sliderItems[i].classList.remove('slide-in');
 			sliderItems[i].classList.remove('slide-out');
 			sliderItems[i].style.zIndex = -1;
+
+			sliderThumbnail[i].classList.remove('active');
 			sliderIndicators[i].classList.remove('active');
 		}
 
@@ -32,6 +35,7 @@ var Slider = (function() {
 		sliderItems[_currentSliderIndex].style.zIndex = 2;
 		sliderItems[_currentSliderIndex].classList.add('slide-in');
 		sliderIndicators[_currentSliderIndex].classList.add('active');
+		sliderThumbnail[_currentSliderIndex].classList.add('active');
 	};
 
 	/**
