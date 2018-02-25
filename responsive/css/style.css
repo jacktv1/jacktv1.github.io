@@ -571,15 +571,18 @@ div.menu ul li.menu-4:hover ul.sub-nav{
 ====================================*/
 
 
-/*Ipad horizontal(1024 x 768)*/
-@media screen and (max-width: 1024px){
 
+@media screen and (max-width: 972px){
+    .footer-info {
+        justify-content: center;
+    }
+    div.nav {
+        height: auto;
+        margin: 0;
+        display: none;
+    }
 }
-/*Ipad vertical(768 x 1024)*/
-@media screen and (max-width: 768px){
 
-}
-/*small Tablet(480 x 640)*/
 @media screen and (max-width: 640px){
 
     .header-content {
@@ -658,13 +661,5 @@ div.menu ul li.menu-4:hover ul.sub-nav{
     .p-xs-5 {
         padding: 5px;
     }
-
-}
-/*Iphone(480 x 640)*/
-@media screen and (min-width: 320px) and (max-width: 800px){
-
-}
-/*samll Smart phone*/
-@media screen and (max-width: 240px){
 
 }

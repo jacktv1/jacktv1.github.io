@@ -2,7 +2,9 @@ $(function() {
 
     // meanmenu
 
-    $("#main-menu").meanmenu();
+    $("#main-menu").meanmenu({
+        meanScreenWidth: 985
+    });
 
     // bx slider
     $('.bxslider').bxSlider({
