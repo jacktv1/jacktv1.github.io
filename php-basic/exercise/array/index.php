@@ -18,7 +18,8 @@ arrayExercise($numberArray1, $numberArray2, $numberArray3);
  * @throws \LogicException If one or more parameter is not array
  */
 
-function arrayExercise($array1, $array2, $array3) {
+function arrayExercise($array1, $array2, $array3)
+{
 
     // Check valid parameters
 
