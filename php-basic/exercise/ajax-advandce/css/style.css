@@ -1,0 +1,18 @@
+.progress-bar-container {
+    margin-top: 50px;
+    width: 300px;
+    height: 30px;
+   
+    position: relative;
+}
+#progress-bar {
+    width: 0;
+    height: 30px;
+    background-color: #673AB7;
+}
+#percent {
+    position: absolute;
+    left: 45%;
+    top: 5px;
+    color: #ff0000;
+}
