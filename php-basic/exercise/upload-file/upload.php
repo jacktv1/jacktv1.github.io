@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_FILES['fileUpload'])) {
-
+    var_dump($_FILES);
     $fileName = basename($_FILES["fileUpload"]["name"]);
     $fileExtension= $_FILES["fileUpload"]["tmp_name"];
     $desDir = "upload";
