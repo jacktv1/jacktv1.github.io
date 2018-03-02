@@ -1,10 +1,5 @@
-[02-03-2018 16:31:45] INFO: user1 access on Linux
-[02-03-2018 16:31:45] DEBUG: $userInfo Array
-(
-    [name] => Quoc Anh
-    [Age] => 22
-    [gender] => male
-)
 
-[02-03-2018 16:31:45] WARNING: This is warning abnormal traffic
-[02-03-2018 16:31:45] ERROR: Error runtime error
+[02-03-2018 17:03:18] INFO: user1. "access on Linux"
+[02-03-2018 17:03:18] DEBUG: $userInfo. {"name":"Quoc Anh","Age":22,"gender":"male"}
+[02-03-2018 17:03:18] WARNING: This is warning. "abnormal traffic"
+[02-03-2018 17:03:18] ERROR: Error. "runtime error"

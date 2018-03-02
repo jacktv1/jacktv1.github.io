@@ -18,7 +18,7 @@ class Logger implements LoggerInterface
         $streamFile = fopen(self::$path, 'a');
         $dateTime = date('d-m-Y H:i:s', time());
         
-        $data = "[$dateTime] $level: $message " . print_r($context,true) . "\n";
+        $data = "[$dateTime] $level: $message. " . json_encode($context) . "\n";
         fwrite($streamFile, $data);
         fclose($streamFile);
     }
