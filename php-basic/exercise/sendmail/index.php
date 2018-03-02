@@ -1,16 +1,6 @@
 <?php
-
-$to = "110114002@sv.tvu.edu.vn";
-
-$subject = "Demo send mail in PHP";
-
-$message = "こんにちは";
-
-
-$send = mb_send_mail ($to,$subject,$message);
-
-if ( $send == true) {
-    echo "Email successfully sent";
-} else {
-    echo "cannot send email ...";
-}
+$recipient = '110114008@sv.tvu.edu.vn';
+$headers = 'From: ngoquocanh111@gmail.com';
+$subject = 'Hello World';
+$message = 'This is a test';
+var_dump(mail('ngoquocanh111@gmail.com', 'My Subject', $message));

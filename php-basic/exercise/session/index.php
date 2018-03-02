@@ -2,9 +2,12 @@
 require_once "session.php";
 
 $session = new SessionDB();
+
+
 $session->startSession('_s', false);
 
-session_id("user");
-$_SESSION["id"] = "jacktv1";
+$_SESSION["user"] = "jacktv1";
 
-echo $_SESSION["id"];
+echo $_SESSION["user"];
+$a = ['aa' => 'bb', 'cc' => 'dd'];
+var_dump($a);
