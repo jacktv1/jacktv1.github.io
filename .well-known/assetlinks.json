@@ -1,0 +1,10 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.able.jp",
+      "sha256_cert_fingerprints":
+      ["B5:B0:54:F6:F1:53:96:7F:ED:9A:66:5B:2B:FD:FD:36:E7:88:AF:C2:E3:AC:01:14:33:3E:FA:94:7A:BF:5D:B9"]
+    }
+  }]
+  
